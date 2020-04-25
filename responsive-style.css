@@ -1,0 +1,343 @@
+/*
+    =================
+    TABLE OF CONTENTS
+    =================
+
+    Section 1: Body & Grid-Template-Area Styling
+
+    Section 2: Header 
+            2.1: Styling for header h1 {}
+            2.2: Styling for "site" inside header h1 {}
+
+    Section 3: Global styling for all articles
+            3.1: Styling for article <p> and <h2>
+            3.2: Defining article grid area id
+            3.3: Styling for <hr> and color for each article
+  
+    Section 4: Media Queries
+            4.1: Styling for (max-width: 992px)
+            4.2: Styling for (max-width: 576px)  
+            4.3: Styling for (max-height: 900px)      
+
+*/
+
+/* 
+  =========
+  SECTION 1
+  =========
+*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: minmax(50vh, 10px);
+
+    grid-template-areas:   
+
+    "header header header"
+    "articleOne articleTwo articleThree" 
+}
+
+/* 
+  =========
+  SECTION 2
+  =========
+*/
+
+header {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #E9EEF4;
+    font-size: 1.5rem;
+    background-color: #2BCDC0;
+    grid-area: header;
+}
+
+/* 
+  ===========
+  SECTION 2.1
+  ===========
+*/
+
+header h1 {
+    font-weight: lighter;
+    font-size: 4em;
+}
+
+/* 
+  ===========
+  SECTION 2.2
+  ===========
+*/
+
+.bold {
+    font-weight: bold;
+}
+
+/* 
+  =========
+  SECTION 3
+  =========
+*/
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: #1B1B1B;
+    text-align: center;
+    size: 100%;
+}
+
+/* 
+  ===========
+  SECTION 3.1
+  ===========
+*/
+
+article h2 {
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+article p {
+    width: 55%;
+    padding-top: 20px;
+    font-size: 1.25em;
+}
+
+/* 
+  ===========
+  SECTION 3.2
+  ===========
+*/
+
+.articleOne {
+    grid-area: articleOne;
+}
+
+.articleTwo {
+    grid-area: articleTwo;
+}
+
+.articleThree  {
+    grid-area: articleThree;
+}
+
+/* 
+  ===========
+  SECTION 3.3
+  ===========
+*/
+
+hr {
+    width: 250px;
+    height: 30px;
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.articleOne hr {
+    background-color: #33A8DD;
+}
+
+.articleTwo hr {
+    background-color: #F46731;
+}
+
+.articleThree hr {
+    background-color: #2BCDC0;
+}
+
+/* 
+    ===========
+    SECTION 4.1
+    ===========
+*/
+
+@media (max-width: 992px) {
+
+    body {
+        grid-auto-columns: 100vw;
+        grid-template-rows: 1fr;
+    
+        grid-template-areas:   
+    
+        "header"
+        "articleOne"
+        "articleTwo"
+        "articleThree"
+        
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .articleOne {
+        grid-area: articleOne;
+    }  
+     
+    .articleTwo {
+        grid-area: articleTwo;
+    }  
+
+    .articleThree {
+        grid-area: articleThree;
+    } 
+
+    hr {
+        margin-top: 30px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+        padding-right: 75px;
+        padding-left: 75px
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 75px;
+    }
+}
+
+/* 
+    ===========
+    SECTION 4.2
+    ===========
+*/
+
+@media (max-width: 576px) {
+
+    body {
+        grid-auto-columns: 100vw;
+        grid-auto-rows: 1fr;
+    
+        grid-template-areas:   
+    
+        "header"
+        "articleOne"
+        "articleTwo"
+        "articleThree"
+        
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    .articleOne {
+        grid-area: articleOne;
+    }
+
+    .articleTwo {
+        grid-area: articleTwo;
+    }
+
+    .articleThree {
+        grid-area: articleThree;
+    } 
+
+    hr {
+        margin-top: 30px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+        padding-right: 75px;
+        padding-left: 75px
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 75px;
+    }
+}
+
+/* 
+    ===========
+    SECTION 4.3
+    ===========
+*/
+
+@media (max-height: 900px) {
+
+    body {
+        grid-auto-columns: 100vw;
+        grid-auto-rows: 1fr;
+    
+        grid-template-areas:   
+    
+        "header"
+        "articleOne"
+        "articleTwo"
+        "articleThree"
+        
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    .articleOne {
+        grid-area: articleOne;
+    }
+
+    .articleTwo {
+        grid-area: articleTwo;
+    }
+
+    .articleThree {
+        grid-area: articleThree;
+    }
+
+    hr {
+        margin-top: 30px;
+    }
+
+    header h1 {
+
+        font-size: 2.5em;
+        padding-right: 75px;
+        padding-left: 75px
+    }
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 75px;
+    }
+}
